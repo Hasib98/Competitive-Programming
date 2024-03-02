@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 void swap(int *x,int *y)
 {
     int temp;
@@ -7,39 +8,35 @@ void swap(int *x,int *y)
     *x   = *y;
     *y   =  temp;
 }
-void bubbleSort(int a[], int n)
+void insertionSort(int a[], int n)
 {
-    for( int i = 0 ; i < n ; i++)
+    for( int i = 1 ; i <=n-1 ; i++)
     {
-        for( int j = 0 ; j < n ; j++ )
+        int j = i;
+        while( j > 0  && a[j-1] > a[j])
         {
-            if(a[j] > a[j+1] )
-            {
-                swap(a[j] , a[j+1]);
-            }
-
+            swap(a[j],a[j-1]);
+            j--;
         }
     }
-
 }
 
 int main()
 {
     int n;
     cin>>n;
-    int a[n];
-
+    int a[n];  //{2,8,5,3,9,4}
     for( int i = 0 ; i < n ; i ++)
     {
         cin>>a[i];
     }
-    bubbleSort(a,n);
+    insertionSort(a,n);
 
     for( int i = 0 ; i < n ; i ++)
     {
         cout<<a[i]<<" ";
     }
-
+    cout<<endl;
     cin.get();
 }
 
